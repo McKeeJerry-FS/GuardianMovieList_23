@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <title>APP NAME: By Jerry McKee Jr</title>
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Devicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">        
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/prism.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html">
+                <img src="/img/JM_Logo_Light-removebg-preview.png" alt="" height="50">
+                APP NAME</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/app.html">App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/code.html">Code</a>
+                    </li>
+                    <li class="nav-item">
+                    <!-- Change me to the GitHub Repo link of the app -->
+                        <a class="nav-link" href="https://github.com/McKeeJerry-FS">The Repo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://jmj-techdevportfolio.netlify.app">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                    <!-- Change me to the deployed blog project -->
+                    <!-- Suggestion: Write a blog post for every project built and lin k in the blog -->
+                    <!-- Remove "Disabled" tag when blog is active -->
+                        <a class="nav-link disabled" href="https://jmj-techdevportfolio.netlify.com">Tech Realm: The Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container py-3">
+        <h1 class="border-bottom border-2 border-dark">The Code</h1>
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <!-- Display Code Here -->
+                <pre class="line-numbers"> <!-- This tag allows for any formatted text (indents, tabs, spaces) to be preserved -->
+                    <code class="language-js"> <!-- allows code to be added to a block and formatted for code -->
+function displayMessage() {
+    // get the text out of input and assign to a variable
+    let msg = document.getElementById('message').value;
+    
+    Swal.fire(
+        {
+            backdrop: false,
+            title: 'APP NAME',
+            text: msg, // <-- replace this with the variable
+        }
+    );
+}
+                    </code>
+                </pre>
+            </div>
+            <div class="col-12 col-lg-4">
+                <!-- Explain your code here -->
+                <p>The code is structured in one function</p>
+                <p><code>displayMessage</code> displays a SweetAlert when the button is pressed.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-3">
+        <div class="container-fluid">
+            <div class="row align-items-center row-cols-1 row-cols-lg-3 gy-2">
+                <div class="col text-center text-lg-start">
+                    &copy; 2023 Jerry McKee Jr
+                </div>
+                <div class="col text-center">
+                    <img src="/img/name_logo-removebg-preview.png" alt="" height="60">
+                </div>
+                <div class="col text-center text-lg-end">
+                    <a href="https://www.linkedin.com/in/jjerry-mckee-jr/" target="_blank"
+                        class="text-decoration-none ">
+                        <i class="bi bi-linkedin p-2"></i>
+                    </a>
+                    <a href="https://github.com/McKeeJerry-FS" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-github p-2"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jay_codes_20/" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-instagram p-2"></i>
+                    </a>
+                    <a href="mailto:jerry.mckee.jr0882@gmail.com" target="_blank" class="text-decoration-none">
+                        <i class="bi bi-envelope-at p-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script tags -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Prism -->
+    <script src="/js/prism.js"></script>
+    <script>
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true
+        })
+    </script>
+</body>
+</html>

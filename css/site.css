@@ -1,0 +1,60 @@
+:root {
+    --jm-primary-color: var(--jm-theme-100); /*theme-100 or theme-200 */
+    --jm-secondary-color: var(--jm-theme-core); /*theme core or theme-500 or theme-600 */
+    --jm-light-color: #deeefb; /* */
+    --jm-dark-color:#212121; /* */
+
+    /* colors */
+    --jm-dark-color: #212121;
+    --jm-light-color: #deeefb;
+    --jm-background-color: rgba(250,250,250,0.8); 
+}
+
+/* #region Sticky Footer */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    flex-shrink: 0;
+}
+/* #endregion Sticky Footer */
+
+footer, nav.navbar {
+    background-color: var(--jm-cyan-800);
+    color: var(--jm-light-color);
+}
+
+footer .bi {
+    font-size: 2rem;
+    padding-left: .5rem;
+    color: var(--jm-light-color);
+    transition: color 0.25s ease-in;
+}
+
+footer .bi:hover{
+    color: var(--jm-secondary-color);
+}
+
+.devicons {
+    font-size: 3rem;
+    color: var(--jm-primary-color);
+}
+
+.bi-check-square-fill{
+    color: var(--jm-secondary-color);
+}
+
+.app-logo {
+    max-width: 400px;
+    border-radius: 15px;
+}
