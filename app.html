@@ -65,107 +65,10 @@
 
   <main class="container-xl">
     <h1 class="text-center mt-3 display-3">Today's Hit Movies</h1>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 justify-content-evenly">
-      <div class="col">
-        <!-- Movie Poster Card -->
-        <div class="card h-100">
-          <img src="https://image.tmdb.org/t/p/w500/b0Ej6fnXAP8fK75hlyi2jKqdhHz.jpg" class="card-img-top"
-            alt="Movie Poster" />
-          <div class="card-body">
-            <h5>The Equalizer 3</h5>
-            <p class="card-text">
-              Robert McCall finds himself at home in Southern Italy but he
-              discovers his friends are under the control of local crime
-              bosses. As events turn deadly, McCall knows what he has to do:
-              become his friends' protector by taking on the mafia.
-            </p>
-          </div>
-          <div class="card-footer text-end">
-            <button class="btn btn-primary">More Info</button>
-          </div>
-        </div>
-        <!-- End Movie Poster Card -->
-      </div>
-      <div class="col">
-        <!-- Movie Poster Card -->
-        <div class="card h-100">
-          <img src="https://image.tmdb.org/t/p/w500/b0Ej6fnXAP8fK75hlyi2jKqdhHz.jpg" class="card-img-top"
-            alt="Movie Poster" />
-          <div class="card-body">
-            <h5>The Equalizer 3</h5>
-            <p class="card-text">
-              Robert McCall finds himself at home in Southern Italy but he
-              discovers his friends are under the control of local crime
-              bosses. As events turn deadly, McCall knows what he has to do:
-              become his friends' protector by taking on the mafia.
-            </p>
-          </div>
-          <div class="card-footer text-end">
-            <button class="btn btn-primary">More Info</button>
-          </div>
-        </div>
-        <!-- End Movie Poster Card -->
-      </div>
-      <div class="col">
-        <!-- Movie Poster Card -->
-        <div class="card h-100">
-          <img src="https://image.tmdb.org/t/p/w500/b0Ej6fnXAP8fK75hlyi2jKqdhHz.jpg" class="card-img-top"
-            alt="Movie Poster" />
-          <div class="card-body">
-            <h5>The Equalizer 3</h5>
-            <p class="card-text">
-              Robert McCall finds himself at home in Southern Italy but he
-              discovers his friends are under the control of local crime
-              bosses. As events turn deadly, McCall knows what he has to do:
-              become his friends' protector by taking on the mafia.
-            </p>
-          </div>
-          <div class="card-footer text-end">
-            <button class="btn btn-primary">More Info</button>
-          </div>
-        </div>
-        <!-- End Movie Poster Card -->
-      </div>
-      <div class="col">
-        <!-- Movie Poster Card -->
-        <div class="card h-100">
-          <img src="https://image.tmdb.org/t/p/w500/b0Ej6fnXAP8fK75hlyi2jKqdhHz.jpg" class="card-img-top"
-            alt="Movie Poster" />
-          <div class="card-body">
-            <h5>The Equalizer 3</h5>
-            <p class="card-text">
-              Robert McCall finds himself at home in Southern Italy but he
-              discovers his friends are under the control of local crime
-              bosses. As events turn deadly, McCall knows what he has to do:
-              become his friends' protector by taking on the mafia.
-            </p>
-          </div>
-          <div class="card-footer text-end">
-            <button class="btn btn-primary">More Info</button>
-          </div>
-        </div>
-        <!-- End Movie Poster Card -->
-      </div>
-      <div class="col">
-        <!-- Movie Poster Card -->
-        <div class="card h-100">
-          <img src="https://image.tmdb.org/t/p/w500/b0Ej6fnXAP8fK75hlyi2jKqdhHz.jpg" class="card-img-top"
-            alt="Movie Poster" />
-          <div class="card-body">
-            <h5>The Equalizer 3</h5>
-            <p class="card-text">
-              Robert McCall finds himself at home in Southern Italy but he
-              discovers his friends are under the control of local crime
-              bosses. As events turn deadly, McCall knows what he has to do:
-              become his friends' protector by taking on the mafia.
-            </p>
-          </div>
-          <div class="card-footer text-end">
-            <button class="btn btn-primary">More Info</button>
-          </div>
-        </div>
-        <!-- End Movie Poster Card -->
-      </div>
+    <button class="btn btn-primary mb-5" onclick="displayMovies()">Get Movies</button>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 justify-content-evenly" id="movieList">
+        <!-- Movie Cards Go Here -->
+
     </div>
   </main>
 
@@ -196,6 +99,29 @@
       </div>
     </div>
   </footer>
+
+  <template id="movieCardTemplate">
+    <div class="col">
+      <!-- Movie Poster Card -->
+      <div class="card h-100">
+        <img src="https://image.tmdb.org/t/p/w500/b0Ej6fnXAP8fK75hlyi2jKqdhHz.jpg" class="card-img-top"
+          alt="Movie Poster" />
+        <div class="card-body">
+          <h5>The Equalizer 3</h5>
+          <p class="card-text">
+            Robert McCall finds himself at home in Southern Italy but he
+            discovers his friends are under the control of local crime
+            bosses. As events turn deadly, McCall knows what he has to do:
+            become his friends' protector by taking on the mafia.
+          </p>
+        </div>
+        <div class="card-footer text-end">
+          <button class="btn btn-primary">More Info</button>
+        </div>
+      </div>
+      <!-- End Movie Poster Card -->
+    </div>
+  </template>
 
   <!-- Script tags -->
   <!-- Bootstrap JS -->

@@ -1,1 +1,58 @@
+// Global Variable -- Temporary --
+const API_Key = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5M2UxMzhkOTg1YTUwNzczZTQ1MDMxZmJiMGY1MjNlOCIsInN1YiI6IjYyMjhjZWU2ZTkyZDgzMDA0ODQyNThkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1CX_lKBbqeBoKBr2SKyJ46oV3iwsr_aUWWlM5XoMDAs"
 
+// calls the API to get the movies
+async function getMovies() {
+  try {
+    
+    //  calls out to the API with the API_Key
+    let response = await fetch('https://api.themoviedb.org/3/movie/popular', {
+      headers: {
+        'Authorization': `Bearer ${API_Key}`
+      }
+    });
+
+    // return a JSON Object
+    let data = await response.json();
+
+    // returning the JSON Object
+    return data;
+
+  }
+  catch (error) {
+
+    console.error(error);
+  }
+}
+
+async function displayMovies() {
+
+	// calling this function to get the movies from the API
+	let data = await getMovies();
+
+	// HTML elements
+	const movieListDiv = document.getElementById('movieList');
+	const moviePosterTemplate = document.getElementById('movieCardTemplate');
+	// Array of movies
+	let movies = data.results;
+
+	for (let i = 0; i < movies.length; i++) {
+		// get each individual movie
+		let movie = movies[i];
+		// makes a copy of the template element !IMPORTANT! You must include "TRUE" in the cloneNode in order to 
+		// access all of the child elements
+		let movieCard = moviePosterTemplate.content.cloneNode(true);
+		// look inside the template and find the first element with this class
+		let movieImageElement = movieCard.querySelector('.card-img-top')
+		movieImageElement.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+		let movieTitleElement = movieCard.querySelector('.card-body > h5');
+		movieTitleElement.textContent = movie.title;
+
+		let movieDescriptionElement = movieCard.querySelector('.card-text');
+		movieDescriptionElement.textContent = movie.overview;
+
+		movieListDiv.appendChild(movieCard);
+	}
+
+}
