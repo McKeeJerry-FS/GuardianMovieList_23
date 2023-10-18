@@ -58,3 +58,17 @@ footer .bi:hover{
     max-width: 400px;
     border-radius: 15px;
 }
+
+.modal-header {
+    background-color: var(--jm-cyan-800);
+    color: var(--jm-light-color);
+}
+
+.modal-footer {
+    background-color: var(--jm-cyan-800);
+    color: var(--jm-light-color);
+}
+
+#closeBtn {
+    color: var(--jm-light-color);
+}

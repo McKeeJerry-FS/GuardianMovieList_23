@@ -103,11 +103,11 @@ async function showMovieDetails(clickedBtn, data) {
 	//TESTING: put the movie ID in the modal
 	// modalBody.textContent = `Movie ID is : ${movieId}`;
 	
-	// TODO:
+	
 	// get the details of the movie with the ID from TMDB
 	let movieData = await getMovie(movieId);
-	// put those details into the modal
 	
+	// put those details into the modal
 	let modalTitle = document.querySelector('#movieModal .modal-title');
 	modalTitle.textContent = movieData.title
 	
@@ -118,5 +118,23 @@ async function showMovieDetails(clickedBtn, data) {
 	movieModalOverview.innerHTML = `<strong>Movie Overview</strong>: ${movieData.overview}`;
 
 	let movieModalTagline = document.querySelector('#movieModalTagline');
-	movieModalTagline.innerHTML = `<strong>Tagline</strong>: "${movieData.tagline}"`;
+	movieModalTagline.innerHTML = `<strong>Tagline</strong>: "<em>${movieData.tagline}</em>"`;
+
+	let movieModalPopularity = document.querySelector('#movieModalPopularity');
+	movieModalPopularity.innerHTML = `<strong>Current Popularity</strong>: ${movieData.popularity}`;
+
+	let movieModalReleaseDate = document.querySelector('#movieModalReleaseDate');
+	movieModalReleaseDate.innerHTML = `<strong>Release Date</strong>: ${movieData.release_date}`;
+
+	let movieModalRuntime = document.querySelector('#movieModalRuntime');
+	movieModalRuntime.innerHTML = `<strong>Movie Runtime</strong>: ${movieData.runtime} minutes`;
+
+	let movieModalGenres = document.querySelector('#movieModalGenres');
+	let genres = [];
+	for(let i = 0; i < movieData.genres.length; i++){
+		genres += movieData.genres[i].name + ' ';
+	}
+	movieModalGenres.innerHTML = `<strong>Genre: </strong>${genres}`;
+
+
 }
