@@ -26,11 +26,11 @@ async function getMovies() {
 }
 
 // get a single movie
-async function getMovie(movieID) {
+async function getMovie(id) {
 	try {
 	  
 	  //  calls out to the API with the API_Key
-	  let response = await fetch('https://api.themoviedb.org/3/movie/{movie_id}', {
+	  let response = await fetch(`https://api.themoviedb.org/3/movie/${id}`, {
 		headers: {
 		  'Authorization': `Bearer ${API_Key}`
 		}
@@ -96,15 +96,27 @@ async function displayMovies() {
 
 }
 
-async function showMovieDetails(clickedBtn) {
+async function showMovieDetails(clickedBtn, data) {
 	// get the ID of the movie that was clicked
 	let movieId = clickedBtn.getAttribute('data-movieId');
 
 	//TESTING: put the movie ID in the modal
-	let modalBody = document.querySelector('#movieModal .modal-body');
-	modalBody.textContent = `Movie ID is : ${movieId}`;
-
+	// modalBody.textContent = `Movie ID is : ${movieId}`;
+	
+	// TODO:
 	// get the details of the movie with the ID from TMDB
-
+	let movieData = await getMovie(movieId);
 	// put those details into the modal
+	
+	let modalTitle = document.querySelector('#movieModal .modal-title');
+	modalTitle.textContent = movieData.title
+	
+	let movieModalPoster = document.querySelector('#movieModalPoster')
+	movieModalPoster.src = `https://image.tmdb.org/t/p/w500${movieData.poster_path}`;
+	
+	let movieModalOverview = document.querySelector('#movieModalOverview');
+	movieModalOverview.innerHTML = `<strong>Movie Overview</strong>: ${movieData.overview}`;
+
+	let movieModalTagline = document.querySelector('#movieModalTagline');
+	movieModalTagline.innerHTML = `<strong>Tagline</strong>: "${movieData.tagline}"`;
 }

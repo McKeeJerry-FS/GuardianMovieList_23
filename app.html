@@ -116,7 +116,7 @@
           </p>
         </div>
         <div class="card-footer text-end">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieModal" onclick="showMovieDetails(this)">Movie Details</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieModal" onclick="showMovieDetails(this)">More Info</button>
         </div>
       </div>
       <!-- End Movie Poster Card -->
@@ -127,14 +127,25 @@
   
   <!-- Modal -->
   <div class="modal fade" id="movieModal" tabindex="-1" aria-labelledby="movieModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="movieModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5 display-4-" id="movieModalLabel">Modal title</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+            <div class="row gy-2">
+                <div class="col-3">
+                  <img src="#" alt="" id="movieModalPoster" height="400px" class="d-flex align-items-center">
+                </div>
+                <div class="col-9">
+                    <p id="movieModalOverview"></p>
+                    <p id="movieModalTagline"></p>
+                    <p id="movieModalPopularity"></p>
+                </div>
+            </div>
+
+         
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
