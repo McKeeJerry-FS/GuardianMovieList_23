@@ -62,6 +62,10 @@ async function displayMovies() {
 		let movieDescriptionElement = movieCard.querySelector('.card-text');
 		movieDescriptionElement.textContent = movie.overview;
 
+		// modify the information for the button
+		let movieButton = movieCard.querySelector('.btn-primary');
+		movieButton.setAttribute('data-movieId', movie.id);
+
 		// adding the movie card to the HTML page
 		movieListDiv.appendChild(movieCard);
 	}
