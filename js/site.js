@@ -137,4 +137,9 @@ async function showMovieDetails(clickedBtn, data) {
 	movieModalGenres.innerHTML = `<strong>Genre: </strong>${genres}`;
 
 
+	let movieModalHomepage = document.querySelector('a');
+	movieModalHomepage.getAttribute("href");
+	movieModalHomepage.setAttribute = ('href', `"${movieData.homepage}"`);
+
+
 }

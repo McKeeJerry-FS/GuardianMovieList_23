@@ -45,6 +45,10 @@ footer .bi:hover{
     color: var(--jm-secondary-color);
 }
 
+button {
+    background-color: var(--jm-secondary-color);
+}
+
 .devicons {
     font-size: 3rem;
     color: var(--jm-primary-color);
@@ -70,5 +74,5 @@ footer .bi:hover{
 }
 
 #closeBtn {
-    color: var(--jm-light-color);
+    background-color: var(--jm-primary-color);
 }
