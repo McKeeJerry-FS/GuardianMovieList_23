@@ -25,6 +25,30 @@ async function getMovies() {
   }
 }
 
+// get a single movie
+async function getMovie(movieID) {
+	try {
+	  
+	  //  calls out to the API with the API_Key
+	  let response = await fetch('https://api.themoviedb.org/3/movie/{movie_id}', {
+		headers: {
+		  'Authorization': `Bearer ${API_Key}`
+		}
+	  });
+  
+	  // return a JSON Object
+	  let data = await response.json();
+  
+	  // returning the JSON Object
+	  return data;
+  
+	}
+	catch (error) {
+  
+	  console.error(error);
+	}
+  }
+
 async function displayMovies() {
 
 	// calling this function to get the movies from the API
@@ -70,4 +94,17 @@ async function displayMovies() {
 		movieListDiv.appendChild(movieCard);
 	}
 
+}
+
+async function showMovieDetails(clickedBtn) {
+	// get the ID of the movie that was clicked
+	let movieId = clickedBtn.getAttribute('data-movieId');
+
+	//TESTING: put the movie ID in the modal
+	let modalBody = document.querySelector('#movieModal .modal-body');
+	modalBody.textContent = `Movie ID is : ${movieId}`;
+
+	// get the details of the movie with the ID from TMDB
+
+	// put those details into the modal
 }

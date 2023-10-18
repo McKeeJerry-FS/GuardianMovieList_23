@@ -116,17 +116,14 @@
           </p>
         </div>
         <div class="card-footer text-end">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieModal">More Info</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieModal" onclick="showMovieDetails(this)">Movie Details</button>
         </div>
       </div>
       <!-- End Movie Poster Card -->
     </div>
   </template>
 
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieModal">
-    Launch demo modal
-  </button>
+  
   
   <!-- Modal -->
   <div class="modal fade" id="movieModal" tabindex="-1" aria-labelledby="movieModalLabel" aria-hidden="true">
