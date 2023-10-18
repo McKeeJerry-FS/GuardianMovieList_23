@@ -31,27 +31,38 @@ async function displayMovies() {
 	let data = await getMovies();
 
 	// HTML elements
+	// movieList Div
 	const movieListDiv = document.getElementById('movieList');
+	
+	// movieList Template
 	const moviePosterTemplate = document.getElementById('movieCardTemplate');
+	
 	// Array of movies
 	let movies = data.results;
 
 	for (let i = 0; i < movies.length; i++) {
 		// get each individual movie
+		
 		let movie = movies[i];
+		
 		// makes a copy of the template element !IMPORTANT! You must include "TRUE" in the cloneNode in order to 
 		// access all of the child elements
 		let movieCard = moviePosterTemplate.content.cloneNode(true);
+		
 		// look inside the template and find the first element with this class
+		// adding the movie poster iamge to the element that is card-img-top
 		let movieImageElement = movieCard.querySelector('.card-img-top')
 		movieImageElement.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
+		// accessing the h5 element (immediate child) in the card-body and adding the title
 		let movieTitleElement = movieCard.querySelector('.card-body > h5');
 		movieTitleElement.textContent = movie.title;
 
+		// accessing the card-text to add the overview of the movie
 		let movieDescriptionElement = movieCard.querySelector('.card-text');
 		movieDescriptionElement.textContent = movie.overview;
 
+		// adding the movie card to the HTML page
 		movieListDiv.appendChild(movieCard);
 	}
 
