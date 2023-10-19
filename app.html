@@ -116,7 +116,7 @@
           </p>
         </div>
         <div class="card-footer text-end">
-          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#movieModal" onclick="showMovieDetails(this)">More Info</button>
+          <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#movieModal" onclick="showMovieDetails(this)">More Info</button>
         </div>
       </div>
       <!-- End Movie Poster Card -->
@@ -127,7 +127,7 @@
   
   <!-- Modal -->
   <div class="modal fade" id="movieModal" tabindex="-1" aria-labelledby="movieModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title display-6" id="movieModalLabel">Modal title</h1>
@@ -135,10 +135,10 @@
         </div>
         <div class="modal-body">
             <div class="row row-cols-1 row-cols-md-2 gy-3">
-                <div class="col-3 g-2 h-100">
-                  <img src="#" alt="" id="movieModalPoster" height="400px" class="d-flex align-items-center justify-content-center">
+                <div class="col g-2 h-100">
+                  <img src="#" alt="" id="movieModalPoster" height="400px" class="img-fluid d-flex align-items-center justify-content-center">
                 </div>
-                <div class="col-9 g-2 h-100">
+                <div class="col g-2 h-100">
                     <p class="fs-5" id="movieModalTagline"></p>
                     <p id="movieModalOverview"></p>
                     <p id="movieModalGenres"></p>
@@ -152,7 +152,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <a href="" class="btn btn-primary disabled" id="movieModalHomepage" target="_blank">Movie's Homepage</a>
+          <a href="" class="btn btn-primary" id="movieHomepageBtn" target="_blank">Movie Homepage</a>
         </div>
       </div>
     </div>

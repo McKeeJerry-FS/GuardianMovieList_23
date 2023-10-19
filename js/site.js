@@ -87,7 +87,7 @@ async function displayMovies() {
 		movieDescriptionElement.textContent = movie.overview;
 
 		// modify the information for the button
-		let movieButton = movieCard.querySelector('.btn-primary');
+		let movieButton = movieCard.querySelector('.btn-info');
 		movieButton.setAttribute('data-movieId', movie.id);
 
 		// adding the movie card to the HTML page
@@ -137,9 +137,7 @@ async function showMovieDetails(clickedBtn, data) {
 	movieModalGenres.innerHTML = `<strong>Genre: </strong>${genres}`;
 
 
-	let movieModalHomepage = document.querySelector('a');
-	movieModalHomepage.getAttribute("href");
-	movieModalHomepage.setAttribute = ('href', `"${movieData.homepage}"`);
-
+	let movieModalHomepage = document.getElementById('movieHomepageBtn');
+	movieModalHomepage.href = movieData.homepage;
 
 }
