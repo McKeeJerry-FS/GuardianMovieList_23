@@ -3,52 +3,64 @@ const API_Key = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5M2UxMzhkOTg1YTUwNzczZTQ1MDMxZm
 
 // calls the API to get the movies
 async function getMovies() {
-  try {
-    
-    //  calls out to the API with the API_Key
-    let response = await fetch('https://api.themoviedb.org/3/movie/popular', {
-      headers: {
-        'Authorization': `Bearer ${API_Key}`
-      }
-    });
+	try {
 
-    // return a JSON Object
-    let data = await response.json();
+		//  calls out to the API with the API_Key
+		let response = await fetch('https://api.themoviedb.org/3/movie/popular', {
+			headers: {
+				'Authorization': `Bearer ${API_Key}`
+			}
+		});
 
-    // returning the JSON Object
-    return data;
+		// return a JSON Object
+		let data = await response.json();
 
-  }
-  catch (error) {
+		// returning the JSON Object
+		return data;
 
-    console.error(error);
-  }
+	}
+	catch (error) {
+		Swal.fire(
+			{
+				backdrop: false,
+				title: 'Oops',
+				text: 'Something went wrong reaching the TMDB API...',
+				icon: 'error'
+			});
+	}
 }
 
 // get a single movie
 async function getMovie(id) {
 	try {
-	  
-	  //  calls out to the API with the API_Key
-	  let response = await fetch(`https://api.themoviedb.org/3/movie/${id}`, {
-		headers: {
-		  'Authorization': `Bearer ${API_Key}`
-		}
-	  });
-  
-	  // return a JSON Object
-	  let data = await response.json();
-  
-	  // returning the JSON Object
-	  return data;
-  
+
+		//  calls out to the API with the API_Key
+		let response = await fetch(`https://api.themoviedb.org/3/movie/${id}`, {
+			headers: {
+				'Authorization': `Bearer ${API_Key}`
+			}
+		});
+
+		// return a JSON Object
+		let data = await response.json();
+
+		// returning the JSON Object
+		return data;
+
 	}
 	catch (error) {
-  
-	  console.error(error);
-	}
-  }
 
+		Swal.fire(
+			{
+				backdrop: false,
+				title: 'Oops',
+				text: 'Something went wrong reaching the TMDB API...',
+				icon: 'error'
+			});
+	}
+}
+
+// displays all of the movies on the App page
 async function displayMovies() {
 
 	// calling this function to get the movies from the API
@@ -57,22 +69,22 @@ async function displayMovies() {
 	// HTML elements
 	// movieList Div
 	const movieListDiv = document.getElementById('movieList');
-	
+
 	// movieList Template
 	const moviePosterTemplate = document.getElementById('movieCardTemplate');
-	
+
 	// Array of movies
 	let movies = data.results;
 
 	for (let i = 0; i < movies.length; i++) {
 		// get each individual movie
-		
+
 		let movie = movies[i];
-		
+
 		// makes a copy of the template element !IMPORTANT! You must include "TRUE" in the cloneNode in order to 
 		// access all of the child elements
 		let movieCard = moviePosterTemplate.content.cloneNode(true);
-		
+
 		// look inside the template and find the first element with this class
 		// adding the movie poster iamge to the element that is card-img-top
 		let movieImageElement = movieCard.querySelector('.card-img-top')
@@ -96,24 +108,25 @@ async function displayMovies() {
 
 }
 
+// displays a single movie's details in the form of a modal
 async function showMovieDetails(clickedBtn, data) {
 	// get the ID of the movie that was clicked
 	let movieId = clickedBtn.getAttribute('data-movieId');
 
 	//TESTING: put the movie ID in the modal
 	// modalBody.textContent = `Movie ID is : ${movieId}`;
-	
-	
+
+
 	// get the details of the movie with the ID from TMDB
 	let movieData = await getMovie(movieId);
-	
+
 	// put those details into the modal
 	let modalTitle = document.querySelector('#movieModal .modal-title');
 	modalTitle.textContent = movieData.title
-	
+
 	let movieModalPoster = document.querySelector('#movieModalPoster')
 	movieModalPoster.src = `https://image.tmdb.org/t/p/w500${movieData.poster_path}`;
-	
+
 	let movieModalOverview = document.querySelector('#movieModalOverview');
 	movieModalOverview.innerHTML = `<strong>Movie Overview</strong>: ${movieData.overview}`;
 
@@ -131,7 +144,7 @@ async function showMovieDetails(clickedBtn, data) {
 
 	let movieModalGenres = document.querySelector('#movieModalGenres');
 	let genres = [];
-	for(let i = 0; i < movieData.genres.length; i++){
+	for (let i = 0; i < movieData.genres.length; i++) {
 		genres += movieData.genres[i].name + ' ';
 	}
 	movieModalGenres.innerHTML = `<strong>Genre: </strong>${genres}`;
