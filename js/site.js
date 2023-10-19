@@ -69,7 +69,7 @@ async function displayMovies() {
 	// HTML elements
 	// movieList Div
 	const movieListDiv = document.getElementById('movieList');
-
+	movieListDiv.innerHTML = '';
 	// movieList Template
 	const moviePosterTemplate = document.getElementById('movieCardTemplate');
 
@@ -80,7 +80,7 @@ async function displayMovies() {
 		// get each individual movie
 
 		let movie = movies[i];
-
+		
 		// makes a copy of the template element !IMPORTANT! You must include "TRUE" in the cloneNode in order to 
 		// access all of the child elements
 		let movieCard = moviePosterTemplate.content.cloneNode(true);
