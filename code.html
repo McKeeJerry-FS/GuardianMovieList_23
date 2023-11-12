@@ -221,9 +221,20 @@ async function showMovieDetails(clickedBtn, data) {
       </div>
       <div class="col-12 col-lg-4">
         <!-- Explain your code here -->
-        <p>The code is structured in four functions: <code>getMovies()</code>, <code>getMovie()</code>, <code>displayMovies()</code>, and code <code>showMovieDetails()</code>.</p>
         <p>
-          
+          The code is structured in four functions: <code>getMovies()</code>, <code>getMovie()</code>, <code>displayMovies()</code>, and code <code>showMovieDetails()</code>.
+        </p>
+        <p>
+          The <code>getMovies()</code> function is the heart of this particular challenge, where the function makes a call out to the API along with important information such as the API Key. The response is then returned in a JSON format where the data can be used and manipulated to be formatted to be displayed to the user. 
+        </p>
+        <p>
+          For the function <code>getMovie()</code> this function makes the API call again this time with the API KEY and the id of the particular movie you want to get specific information for. The data is returned in JSON format so the data can be used and manipulated to be displayed to the user.
+        </p>
+        <p>
+          <code>displayMovies()</code> uses data recieved from <code>getMovies()</code> to be able to display a list of movies on the page. Each movie is set up on a card utilizing Bootstrap Cards. The top 20 movies from the API are displayed on the page. Each movie can be chosen so that the information about the specific movie can be displayed. This is achieved with data being added to the <code>showMovieDetails</code> function. This function utilizes the API data for the individual movie that was requested.
+        </p>
+        <p>
+
         </p>
       </div>
     </div>
